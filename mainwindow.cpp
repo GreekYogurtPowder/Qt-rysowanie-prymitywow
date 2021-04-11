@@ -12,18 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     QImage image = QImage(sizeX, sizeY, QImage::Format_RGB32);
 
-    //for(int l=0; l<sizeX; l++) { //kolorowanie calego tla
-
-        //for (int c=0; c<sizeY; c++) {
-
-            //image.setPixel(l, c, qRgb(100, 150, 200));
-
-        //}
-
-    //}
-
-
-
     //rysowanie kwadratu
     /*for (int wysokosc = 0; wysokosc < sizeX; wysokosc++)
     {
@@ -66,40 +54,32 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-    int x = 250;
-    int y = 450;
+    int x = 300;
+    int y = 300;
 
     //rysowanie trojkata
     for (int wysokosc = 0; wysokosc < sizeX; wysokosc++)
     {
         for (int szerokosc = 0; szerokosc < sizeY; szerokosc++)
         {
+            if (wysokosc >= 300 && wysokosc < 500)
+            {
+                if (szerokosc == x || szerokosc == y) //linie skosne
+                    image.setPixel(szerokosc, wysokosc, qRgb(100, 150, 200));
+            }
 
-            if (wysokosc == 500)
+            if (wysokosc == 500) //linia pozioma
             {
                 if (szerokosc >= 100 && szerokosc <= 500)
-                {
-                    image.setPixel(szerokosc, wysokosc, qRgb(100, 150, 200)); //linia pozioma
-                }
-            } else if (szerokosc == x) //skosna
-            {
-                if (wysokosc >= 200 && wysokosc <= 500)
-                {
-                    x--;
-                    //y++;
                     image.setPixel(szerokosc, wysokosc, qRgb(100, 150, 200));
-
-                }
-            } else if (szerokosc == y)
-            {
-                if (wysokosc >= 200 && wysokosc <= 500)
-            {
-                y++;
-                image.setPixel(szerokosc, wysokosc, qRgb(100, 150, 200));
-
             }
+
         }
 
+        if (wysokosc >= 300 && wysokosc < 500)
+        {
+            x--;
+            y++;
         }
     }
 
@@ -114,4 +94,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
 
