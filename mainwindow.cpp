@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     int sizeY = 600;
 
     QImage image = QImage(sizeX, sizeY, QImage::Format_RGB32);
+    image.fill(QColor(255, 255, 255)); //wypelnienie bialym kolorem
 
     //rysowanie kwadratu
     /*for (int wysokosc = 0; wysokosc < sizeX; wysokosc++)
@@ -22,13 +23,13 @@ MainWindow::MainWindow(QWidget *parent)
             {
                 if (szerokosc >= 100 && szerokosc <= 300)
                 {
-                    image.setPixel(wysokosc, szerokosc, qRgb(100, 150, 200));
+                    image.setPixel(wysokosc, szerokosc, qRgb(0, 0, 0));
                 }
             } else if (szerokosc == 100 || szerokosc == 300)
             {
                 if (wysokosc >= 100 && wysokosc <= 300)
                 {
-                    image.setPixel(wysokosc, szerokosc, qRgb(100, 150, 200));
+                    image.setPixel(wysokosc, szerokosc, qRgb(0, 0, 0));
                 }
             }
 
@@ -46,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
             {
                 if (szerokosc >= 100 && szerokosc <= 500)
                 {
-                    image.setPixel(wysokosc, szerokosc, qRgb(100, 150, 200)); //image.setPixel(szerokosc, wysokosc, qRgb(100, 150, 200)); //pionowa, pozioma
+                    image.setPixel(wysokosc, szerokosc, qRgb(0, 0, 0)); //image.setPixel(szerokosc, wysokosc, qRgb(0, 0, 0)); //pionowa, pozioma
                 }
             }
         }
@@ -65,13 +66,13 @@ MainWindow::MainWindow(QWidget *parent)
             if (wysokosc >= 300 && wysokosc < 500)
             {
                 if (szerokosc == x || szerokosc == y) //linie skosne
-                    image.setPixel(szerokosc, wysokosc, qRgb(100, 150, 200));
+                    image.setPixel(szerokosc, wysokosc, qRgb(0, 0, 0));
             }
 
             if (wysokosc == 500) //linia pozioma
             {
                 if (szerokosc >= 100 && szerokosc <= 500)
-                    image.setPixel(szerokosc, wysokosc, qRgb(100, 150, 200));
+                    image.setPixel(szerokosc, wysokosc, qRgb(0, 0, 0));
             }
 
         }
